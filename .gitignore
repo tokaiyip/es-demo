@@ -1,0 +1,16 @@
+# composer vendor dir
+/vendor
+
+# phpstorm project files
+.idea
+
+# Mac DS_Store Files
+.DS_Store
+
+# Log
+/log/*
+!/log/.gitkeep
+
+# Temp
+/temp/*
+!/temp/.gitkeep
