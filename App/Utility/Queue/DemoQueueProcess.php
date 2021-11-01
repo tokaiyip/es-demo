@@ -1,12 +1,7 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: tokaiyip
- * Date: 2021/10/26
- * Time: 10:16 AM
- */
 
-namespace App\Utility;
+
+namespace App\Utility\Queue;
 
 
 use EasySwoole\Component\Process\AbstractProcess;

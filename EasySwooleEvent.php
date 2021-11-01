@@ -7,8 +7,8 @@ namespace EasySwoole\EasySwoole;
 use App\Crontab\DemoCrontab;
 use App\Pool\MysqlObject;
 use App\Pool\MysqlPool;
-use App\Utility\DemoQueue;
-use App\Utility\DemoQueueProcess;
+use App\Utility\Queue\DemoQueue;
+use App\Utility\Queue\DemoQueueProcess;
 use EasySwoole\Component\Process\Manager;
 use EasySwoole\EasySwoole\AbstractInterface\Event;
 use EasySwoole\EasySwoole\Crontab\Crontab;
@@ -33,11 +33,11 @@ class EasySwooleEvent implements Event
 //        \EasySwoole\Pool\Manager::getInstance()->register(new MysqlPool($mysqlPoolConfig, $mysqlConfig), MysqlObject::TYPE);
 
         // 注册redis
-        $redisConfig = new RedisConfig(Config::getInstance()->getConf("REDIS"));
-        RedisPool::getInstance()->register($redisConfig, 'redis');
+//        $redisConfig = new RedisConfig(Config::getInstance()->getConf("REDIS"));
+//        RedisPool::getInstance()->register($redisConfig, 'redis');
 
         // 注册ORM
-        DbManager::getInstance()->addConnection(new Connection(new \EasySwoole\ORM\Db\Config(Config::getInstance()->getConf("MYSQL"))), "mysql");
+//        DbManager::getInstance()->addConnection(new Connection(new \EasySwoole\ORM\Db\Config(Config::getInstance()->getConf("MYSQL"))), "mysql");
     }
 
     public static function mainServerCreate(EventRegister $register)
@@ -56,10 +56,10 @@ class EasySwooleEvent implements Event
 //        Crontab::getInstance()->addTask(DemoCrontab::class);
 
         // 配置队列
-        $demoQueueDriver = new RedisQueue(new RedisConfig(Config::getInstance()->getConf("REDIS")), 'DemoQueue');
-        DemoQueue::getInstance($demoQueueDriver);
+//        $demoQueueDriver = new RedisQueue(new RedisConfig(Config::getInstance()->getConf("REDIS")), 'DemoQueue');
+//        DemoQueue::getInstance($demoQueueDriver);
 
         // 注册消费进程
-        Manager::getInstance()->addProcess(new DemoQueueProcess());
+//        Manager::getInstance()->addProcess(new DemoQueueProcess());
     }
 }
