@@ -5,7 +5,8 @@
         "easyswoole/mysqli": "^2.2",
         "easyswoole/file-watcher": "^1.0",
         "easyswoole/queue": "3.x",
-        "easyswoole/orm": "^1.5"
+        "easyswoole/orm": "^1.5",
+        "easyswoole/http-client": "^1.5"
     },
     "autoload": {
         "psr-4": {

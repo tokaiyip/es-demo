@@ -8,3 +8,4 @@
 3. redis-pool
 4. queue
 5. orm 
+6. http-client（需要swoole支持openssl）
