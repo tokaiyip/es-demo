@@ -17,17 +17,17 @@
 ```
 server {
 listen 80;
-server_name www.tokaiyip.com;
+server_name SERVER_NAME;
 return 307 https://$server_name$request_uri;
 }
 
 server {
 listen 443;
-server_name www.tokaiyip.com;
+server_name SERVER_NAME;
 
     ssl on;
-    ssl_certificate ssl/xx.crt;
-    ssl_certificate_key ssl/xx.key;
+    ssl_certificate ssl/CRT.crt;
+    ssl_certificate_key ssl/KEY.key;
     ssl_ciphers "EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH";
     ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
 
@@ -44,7 +44,7 @@ server_name www.tokaiyip.com;
         proxy_pass http://127.0.0.1:PORT;
     }
 
-    access_log /data/wwwlogs/es-demo.log access;
+    access_log LOG_DIR access;
 }
 ```
 
