@@ -47,6 +47,25 @@ server_name SERVER_NAME;
 }
 ```
 
+### supervisor配置示例
+```
+[program:es-demo]
+process_name=es-demo
+command=php easyswoole sever start --mode=dev
+autostart=true
+startsecs=1
+autorestart=false
+startretries=3
+user=root
+priority=999
+redirect_stderr=true
+stdout_logfile=LOG_DIR
+stdout_logfile_maxbytes=100MB
+stdout_logfile_backups=30
+stopasgroup=true
+killasgroup=true
+```
+
 ### 命令
 1. 启动：php easyswoole sever start --mode=dev
 2. 定时任务列表： php easyswoole crontab show
