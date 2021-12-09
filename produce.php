@@ -24,7 +24,7 @@ return [
     "LOG" => [
         'dir' => null,
         'level' => LoggerInterface::LOG_LEVEL_DEBUG,
-        'handler' => new \App\Utility\LogHandler(__DIR__ . "/Log"),
+        'handler' => new App\Utility\LogHandler(__DIR__ . "/Log"),
 //        'handler' => null,
         'logConsole' => true,
         'displayConsole'=>true,
