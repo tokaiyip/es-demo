@@ -1,5 +1,4 @@
 # easyswoole-demo
----
 基于easyswoole框架，集成文档中部分内容的demo。
 
 ## 目前集成功能
