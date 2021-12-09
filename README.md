@@ -47,3 +47,10 @@ server_name SERVER_NAME;
 }
 ```
 
+### 命令
+1. 启动：php easyswoole sever start --mode=dev
+2. 定时任务列表： php easyswoole crontab show
+3. 执行一次定时任务：php easyswoole crontab run --name=CRONTAB_NAME
+4. 执行phpUnit：php easyswoole phpunit Tests/Test.php
+
+
