@@ -5,7 +5,7 @@ namespace App\HttpController;
 
 
 use App\Pool\MysqlObject;
-use App\Utility\DemoQueue;
+use App\Utility\Queue\DemoQueue;
 use EasySwoole\EasySwoole\Logger;
 use EasySwoole\Http\AbstractInterface\Controller;
 use EasySwoole\Mysqli\QueryBuilder;
