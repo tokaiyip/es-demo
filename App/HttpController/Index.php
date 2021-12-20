@@ -9,6 +9,7 @@ use App\Utility\Queue\DemoQueue;
 use EasySwoole\EasySwoole\Logger;
 use EasySwoole\Http\AbstractInterface\Controller;
 use EasySwoole\Mysqli\QueryBuilder;
+use EasySwoole\ORM\Db\ClientInterface;
 use EasySwoole\ORM\DbManager;
 use EasySwoole\Queue\Job;
 
@@ -92,6 +93,23 @@ class Index extends Controller
             $queryBuild->raw("SELECT * FROM user WHERE id = ?", [1]);
             $res = DbManager::getInstance()->query($queryBuild, true, "mysql")->getResult();
             var_dump($res);
+        }catch (\Throwable $t) {
+            Logger::getInstance()->waring($t);
+        }
+    }
+
+    // invoke示例
+    public function invokeOrmDemo()
+    {
+        try {
+            DbManager::getInstance()->invoke(function (ClientInterface $client) {
+                // 原生sql
+                $queryBuild = new QueryBuilder();
+                $queryBuild->raw("SELECT * FROM user WHERE id = ?", [1]);
+                $res = $client->query($queryBuild)->getResult();
+                var_dump($res);
+            }, 'mysql');
+
         }catch (\Throwable $t) {
             Logger::getInstance()->waring($t);
         }
