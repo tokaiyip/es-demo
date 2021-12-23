@@ -9,6 +9,7 @@ use App\Pool\MysqlObject;
 use App\Pool\MysqlPool;
 use App\Utility\Queue\DemoQueue;
 use App\Utility\Queue\DemoQueueProcess;
+use App\Utility\Queue\ErrorQueue;
 use EasySwoole\Component\Process\Manager;
 use EasySwoole\EasySwoole\AbstractInterface\Event;
 use EasySwoole\EasySwoole\Crontab\Crontab;
@@ -52,6 +53,12 @@ class EasySwooleEvent implements Event
         });
         $watcher->attachServer(ServerManager::getInstance()->getSwooleServer());
 
+//        $defaultRedisConfig = Config::getInstance()->getConf("REDIS");
+
+        // 通用错误队列
+//        $errorQueueDriver = new RedisQueue(new RedisConfig($defaultRedisConfig), 'ErrorQueue');
+//        ErrorQueue::getInstance($errorQueueDriver);
+
         // 定时任务注册
 //        Crontab::getInstance()->addTask(DemoCrontab::class);
 
@@ -61,5 +68,7 @@ class EasySwooleEvent implements Event
 
         // 注册消费进程
 //        Manager::getInstance()->addProcess(new DemoQueueProcess());
+
+
     }
 }
